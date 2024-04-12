@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'SurahNames';
+  src: url('../assets/fonts/sura_names.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoKufiArabic';
+  src: url('../assets/fonts/NotoKufiArabic-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
