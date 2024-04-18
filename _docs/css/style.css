@@ -1,0 +1,76 @@
+html {
+    min-height: 100% !important;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: verdana, sans-serif, arial, helvetica;
+    font-size: 16px;
+    color: rgb(192, 192, 192);
+    background-color: #292929;
+    background-image: url("../images/bg_jean.png");
+    height: 100%;
+    letter-spacing: 0;
+}
+
+#header {
+    padding: 10px;
+    overflow: hidden;
+    background: #161616;
+    border-bottom: 5px solid #a6780c;
+    text-align: center;
+}
+
+.container {
+    width: 788px;
+    margin: 0 auto;
+}
+
+p {
+    margin-left: 15px;
+}
+
+h3 {
+    color: #999999;
+    font-family: arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 1px;
+}
+
+a {
+    color: #693;
+    text-decoration: none;
+}
+
+.screenshot {
+	width: 45% !important;
+	height: 45% !important;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.right-side-header {
+    align-items: center;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    box-shadow: rgb(64, 64, 64) 0 1px 0;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    line-height: 0.5;
+}
+
+#footer {
+    color: #999999;
+    background: #161616;
+    padding: 2px;
+    text-align: center;
+    border-top: 5px solid #a6780c;
+}
