@@ -1,37 +1,57 @@
-﻿// Define a global variable to store the script path (extensionRoot)
-var scriptPath; 
-
-// Define the function to set the script path from index.html
-function setScriptPath(path) {
-    scriptPath = path;
+﻿
+// Function to add text layer with specific font
+function addTextLayerWithFontAEFT(text, fontName, fontSize, addLineBreaks) {
+    var comp = app.project.activeItem;
+    if (!(comp instanceof CompItem)) {
+        alert("Please select a composition.");
+        return;
+	}
+	
+    var textLayer = comp.layers.addText(text);
+    var textProperty = textLayer.property("Source Text");
+    var textDocument = textProperty.value;
+    textDocument.font = fontName;
+	textDocument.fontSize = fontSize; // Set font size
+    textProperty.setValue(textDocument);
+	// var fontSize = textDocument.fontSize; // Get fontSize of Document
+	
+    if (addLineBreaks) {
+	    // Calculate maximum characters that can fit in one line
+        var maxWidth = comp.width;
+        var maxChars = Math.floor(maxWidth / (fontSize * 1)); // Adjust factor as needed
+        if (text.length > maxChars) {
+		    // Insert line breaks
+            textLayer.property("Source Text").setValue(text.replace(new RegExp('(.{1,' + maxChars + '})(\\s+|$)', 'g'), '$1\n'));
+		}
+	}
 }
 
 // Define the function to add surah name with specified number
-function addSurahName(surahNumber) {
+function addSurahNameAEFT(surahNumber, fontSize) {
     var optionText = surahTextMapping[surahNumber];
     var font = "QCF_BSML";
     
-    addTextLayerWithFont(optionText, font);
+    addTextLayerWithFontAEFT(optionText, font, fontSize);
 }
 
 // Define the function to add page
-function addPage(pageNumber) {
+function addPageAEFT(pageNumber, fontSize) {
 	var optionText = pageTextMapping["P" + pageNumber] || "";
 	var font = "QCF_P" + pageNumber;
 	
-	addTextLayerWithFont(optionText, font);
+	addTextLayerWithFontAEFT(optionText, font, fontSize);
 }
 
 // Define the function to add Verse
-function addVerse(verseKey, lineBreak) {
+function addVerseAEFT(verseKey, fontSize, lineBreak) {
 	var verse = verses[verseKey];
 	if (verse) {
 		var textToAdd = verse.code_v1;
 		var fontName = "QCF_P" + ("00" + verse.v1_page).slice(-3); // Generate font name dynamically
 		if (lineBreak) {
-			addTextLayerWithFont(textToAdd, fontName, true);
+			addTextLayerWithFontAEFT(textToAdd, fontName, fontSize, true);
 			} else {
-			addTextLayerWithFont(textToAdd, fontName, false);
+			addTextLayerWithFontAEFT(textToAdd, fontName, fontSize, false);
 		}
 		
         } else {
@@ -40,7 +60,7 @@ function addVerse(verseKey, lineBreak) {
 }
 
 // Define the function to add Background (solid & surah-header.png)
-function addBackground() { 
+function addBackgroundAEFT() { 
 	
     var comp = app.project.activeItem;
     if (!(comp && comp instanceof CompItem)) {
@@ -75,7 +95,7 @@ function addBackground() {
 }
 
 // Define the function to add TextBox
-function addTextBox() {
+function addTextBoxAEFT() {
     var comp = app.project.activeItem;
     if (!(comp && comp instanceof CompItem)) {
         alert("Please select a composition.");
@@ -89,57 +109,23 @@ function addTextBox() {
         return;
 	}
 	
-    var textLayer = selectedLayers[0];
-    var textDocument = textLayer.property("ADBE Text Properties").property("ADBE Text Document").value;
-    textDocument.applyFill = true;
-    textDocument.fillColor = [0, 0, 0];
-    textLayer.property("ADBE Text Properties").property("ADBE Text Document").setValue(textDocument);
+	// Path to the preset
+	var myPresetPath = scriptPath + "%5Cdata%5Cffx%5CtextBox.ffx";
 	
-	// Add Fill effect
-	try {
-		var fillEffect = textLayer.Effects.addProperty("ADBE Fill");
-		fillEffect.property("Color").setValue([0.980392, 0.945098, 0.894118, 1]);
-		} catch (e) {
-		// Show alert if an error occurs
-		alert("Failed to add Fill effect: " + e.message);
+	var presetFile = File(myPresetPath);
+	
+    // Loop through all selected layers
+    for (var i = 0; i < selectedLayers.length; i++) {
+        // Check if the current layer is a text layer
+        if (selectedLayers[i] instanceof TextLayer) {
+            // Apply the preset to the text layer
+            selectedLayers[i].applyPreset(presetFile);
+		}
 	}
-	
-	// Add CC RepeTile effect
-	try {
-		var repeTileEffect = textLayer.Effects.addProperty("CC RepeTile");
-		repeTileEffect.property("Expand Right").setValue(50);
-		repeTileEffect.property("Expand Left").setValue(50);
-		repeTileEffect.property("Expand Down").setValue(10);
-		repeTileEffect.property("Expand Up").setValue(10);
-		} catch (e) {
-		// Show alert if an error occurs
-		alert("Failed to add CC RepeTile effect: " + e.message);
-	}
-	
-	// Add Shift Channels effect
-	try {
-		var shiftChannelsEffect = textLayer.Effects.addProperty("ADBE Shift Channels");
-		// Set "Take Alpha From" to "Full On"
-		shiftChannelsEffect.property(1).setValue(9); // Property index for "Take Alpha From"
-		} catch (e) {
-		// Show alert if an error occurs
-		alert("Failed to add Shift Channels effect: " + e.message);
-	}
-	
-	// Add CC Composite effect
-	try {
-		var ccCompositeEffect = textLayer.Effects.addProperty("CC Composite");
-		} catch (e) {
-		// Show alert if an error occurs
-		alert("Failed to add CC Composite effect: " + e.message);
-	}
-	
-	// Deselect the layer
-    textLayer.selected = false;	
 }					
 
 // Define the function to separate lines
-function separateLines() {
+function separateLinesAEFT() {
 	var comp = app.project.activeItem;
 	if (!(comp && comp instanceof CompItem)) {
 		alert("Please select a composition.");
@@ -165,20 +151,3 @@ function separateLines() {
 	
 	textLayer.remove();
 }
-
-// Function to check if a text layer is selected
-function isTextLayerSelected() {
-  var comp = app.project.activeItem;
-  if (comp && comp instanceof CompItem) {
-    var selectedLayers = comp.selectedLayers;
-    for (var i = 0; i < selectedLayers.length; i++) {
-      if (selectedLayers[i] instanceof TextLayer) {
-        return true;
-      }
-    }
-  }
-  return false;
-}
-
-// Exporting function for use in HTML panel
-//this.isTextLayerSelected = isTextLayerSelected;

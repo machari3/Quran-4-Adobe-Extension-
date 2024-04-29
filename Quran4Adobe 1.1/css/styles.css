@@ -16,15 +16,17 @@ body {
 .application-main-content {
 	display: flex;
 	justify-content: space-between;
+	width: 470px;
+	margin: auto;
 }
 
 .header {
     overflow: hidden;
     background: #161616;
-    border-top: 5px solid #a6780c;
-    border-bottom: 5px solid #a6780c;
+    border-top: 3px solid #a6780c;
+    border-bottom: 3px solid #a6780c;
     text-align: center;
-	padding-top: 5px;
+	padding-top: 2px;
 }
 
 .left-group,
@@ -44,7 +46,7 @@ body {
 	font-family: NotoKufiArabic;
 	font-size: 1rem;
 	background: #2f2f2f;
-	padding-top: 3px;
+	/*padding-top: 3px;*/
 	border-radius: 30px;
 	border-bottom: 1px solid #000;
 	box-shadow: #404040 0 1px 0, #404040 0 0 0 1px;
@@ -60,7 +62,14 @@ body {
 .scrollable-container {
 	overflow-y: auto;
 	max-height: 200px; 
-	min-height: 200px;
+	min-height: 170px;
+	overflow-y: auto;
+}
+
+.scrollable-container1 {
+	overflow-y: auto;
+	max-height: 190px; 
+	min-height: 185px;
 	overflow-y: auto;
 }
 
@@ -68,10 +77,10 @@ body {
 	background-color: #161616;
 	color: #fff;
 	border: 1px solid #313131;
-	padding: 4px 10px;
-	width: 95%;
-	margin-bottom: 10px;
-    margin-top: 10px;
+	padding: 2px 10px;
+	width: 90%;
+	margin-bottom: 5px;
+    margin-top: 5px;
 	font: 1.143em "Times New Roman", serif;
 	outline: none;
 }
@@ -124,7 +133,7 @@ body {
 	color: #fff;
 }
 
-.chapter, .page  {
+.surah, .page  {
 	display: flex;
 	align-items: center;
 	padding: 2px 5px;
@@ -150,7 +159,7 @@ body {
 }
 
 .surah-name {
-	display: none; /* Hide chapter names */
+	display: none; /* Hide surah names */
 }
 
 .surah-arabic-name, .page-number  {
@@ -192,7 +201,7 @@ body {
 }
 
 .wrapper .custom_checkbox{
-	margin:0px 5px;
+	margin:0px 2px;
 }
 
 .custom_checkbox input{
@@ -214,14 +223,14 @@ body {
 	content: '';
 	background-color: #161616;
 	border: 2px solid #ddd;
-	padding: 12px;
+	padding: 8px;
 	border-radius: 5px;
 	display: inline-block;
 	position: relative;
 	vertical-align: middle;
 	cursor: pointer;
 	//margin-right: 15px;
-	margin-left: 10px;
+	margin-left: 6px;
 	transition: background-color 0.3s ease-in-out;
 	/*
 		background: linear-gradient(to bottom, #222222 0%, #45484d 100%);
@@ -233,10 +242,10 @@ body {
 	content: '';
 	display: block;
 	position: absolute;
-	top: 0px;
-	right: 9px; /* Adjusted from 'left' to 'right' */
-	width: 8px;
-	height: 14px;
+	top: 2px;
+	right: 6px; /* Adjusted from 'left' to 'right' */
+	width: 6px;
+	height: 10px;
 	border: solid #fff;
 	border-width: 0 2px 2px 0;
 	transform: rotate(45deg);
@@ -247,4 +256,52 @@ body {
 	border-color: #303236;
 	background: linear-gradient(to bottom, #27ae60 0%, #145b32 100%);
 	box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    background-color: #232323;
+    color: #2d8ceb;
+    border: 1px solid #232323; /* 313131 */
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: left;
+	width: 35px;
+	outline: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"]:focus {
+	border: 1px solid #555;
+	background-color: #fff;
+}
+
+
+.number-input {
+	/*  border: 1px solid #313131;*/
+    display: inline-flex;
+}
+
+.number-input * {
+    box-sizing: border-box;
+}
+
+.number-input button.plus:after {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+.panel1 {
+    display: flex; /* Use flexbox to align items horizontally */
+    align-items: center; /* Vertically center items */
+}
+
+.number-input {
+    display: flex; /* Nested flexbox for the number input */
+    align-items: center; /* Vertically center the buttons and input */
 }
