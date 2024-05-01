@@ -19,6 +19,6 @@ $(document).ready(function(){
     $('#addAyaButton').click(function () {
 		const verseKey = $('#verseInputField').val();
 		const isChecked = $("#addLineBreaks").prop("checked");
-        csInterface.evalScript('addVerseIDSN("'+ verseKey +'", ' + window.fontSizeValue + ', '+ isChecked +')');
+        csInterface.evalScript('addVerseIDSN("'+ verseKey +'", ' + window.fontSizeValue + ')');
 	});
 });	

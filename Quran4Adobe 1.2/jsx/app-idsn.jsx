@@ -41,19 +41,11 @@ function addPageIDSN(pageNumber, fontSize) {
 }
 
 // Function to add Verse
-function addVerseIDSN(verseKey, fontSize, lineBreak) {
+function addVerseIDSN(verseKey, fontSize) {
     var verse = verses[verseKey];
     if (verse) {
         var textToAdd = verse.code_v1;
         var fontName = "QCF_P" + ("00" + verse.v1_page).slice(-3); // Generate font name dynamically
-      /*  if (lineBreak) {
-            // Get the width of the active document
-            var documentWidth = app.activeDocument.documentPreferences.pageWidth;
-            var maxChars = Math.floor(documentWidth / (fontSize * 0.6)); // Adjust factor as needed
-            if (textToAdd.length > maxChars) {
-                textToAdd = textToAdd.replace(new RegExp('(.{1,' + maxChars + '})(\\s+|$)', 'g'), '$1\r');
-            }
-	  }*/
         addTextFrame(textToAdd, fontName, fontSize);
     } else {
         alert("Verse not found.");

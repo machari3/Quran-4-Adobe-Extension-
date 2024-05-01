@@ -145,6 +145,7 @@ $(document).ready(function(){
 		$('#addBackground').hide();
 		$('#addTextBox').hide();
 		$('#addSeparateLines').hide();
+		$('#lineBreaks').hide();
 		break;
 	}
 	
