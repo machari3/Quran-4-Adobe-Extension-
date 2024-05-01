@@ -3,7 +3,7 @@
 const pad = (num, size) => num.toString().padStart(size, '0');
 
 $(document).ready(function(){
-	
+		
 	// Get font size 
 	window.fontSizeValue = $('#font-size').val();
 	
@@ -26,7 +26,7 @@ $(document).ready(function(){
 		`);
 		$pagesContainer.append(pageContainer);
 	}
-
+	
 	// Update selection when clicking on Page container
 	$pagesContainer.on('click', '.page-container', function() {
 		$('.page-container').removeClass('selected').find('.page-arabic').css('background-color', '');
@@ -132,5 +132,24 @@ $(document).ready(function(){
 		$('#addTextBox').hide();
 		$('#addSeparateLines').hide();
 		break;
+		
+		case "ILST":	
+		$('#header-image').attr('src', 'images/Quran4ILST.png');
+		$('#addBackground').hide();
+		$('#addTextBox').hide();
+		$('#addSeparateLines').hide();
+		break;
+		
+		case "IDSN":	
+		$('#header-image').attr('src', 'images/Quran4IDNS.png');
+		$('#addBackground').hide();
+		$('#addTextBox').hide();
+		$('#addSeparateLines').hide();
+		break;
 	}
+	
+    $('#about').click(function () {	
+      window.location.href = 'about.html';   
+	});
+
 });	

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExtensionManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ExtensionBundleId="Quran4Adobe" ExtensionBundleVersion="1.0.0" Version="10.0" xsi:noNamespaceSchemaLocation="manifest.xsd">
     <ExtensionList>
-        <Extension Id="Quran4Adobe" Version="1.1.0"/>
+        <Extension Id="Quran4Adobe" Version="1.2.0"/>
     </ExtensionList>
     <ExecutionEnvironment>
         <HostList>
@@ -9,6 +9,8 @@
 			<Host Name="PPRO" Version="22.0" />
             <Host Name="PHSP" Version="16.0"/>
             <Host Name="PHXS" Version="16.0"/>
+            <Host Name="ILST" Version="19.0"/>
+            <Host Name="IDSN" Version="11.0"/>
         </HostList>
         <LocaleList>
             <Locale Code="All"/>  
@@ -30,7 +32,7 @@
                 </Lifecycle>
                 <UI>
                     <Type>Panel</Type>
-                    <Menu>Quran4Adobe 1.1</Menu>
+                    <Menu>Quran4Adobe 1.2</Menu>
                     <Geometry>
                         <Size>
                             <Height>640</Height>

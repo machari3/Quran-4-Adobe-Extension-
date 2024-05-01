@@ -3,7 +3,7 @@
 	* بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ
 	* In the name of Allah, Most Gracious, Most Merciful
 	* 
-	* Quran4Adobe Extension V1.1:
+	* Quran4Adobe Extension V1.2:
 	* الأداة عبارة عن إضافة لبرنامج الأفتر ايفكتس والبريمر برو والفوتوشوب تتيح للمستخدمين 
 	* إضافة الصفحات والآيات وأسماء السور القرآنية بسهولة إلى مشاريعهم
 	* مما يوفر الوقت والجهد ... وصلى الله على نبينا محمدﷺ
@@ -12,7 +12,7 @@
 	* ولهذا كل مقترحاتكم ودعمكم مرحب به
 	*
 	* @link          https://github.com/machari3/Quran-4-Adobe-Extension-    Quran 4 Adobe Extension Project.
-	* @version 1.1
+	* @version 1.2
 	*
 	* نشكر القائمين على مشروع قرآن دوت كوم، حيث لم يكن هذا المشروع ممكنًا 
 	* بدون الإعتماد على مشاريعهم مفتوحة المصدر لإنتاج هذه الأداة
@@ -47,7 +47,6 @@
 			}	
 			
 			loadJSX('data.jsx');
-			
 			switch(appName) {
 				case "AEFT":
 				loadJSX('app-aeft.jsx');
@@ -60,6 +59,14 @@
 				case "PHSP":
 				case "PHXS":
 				loadJSX('app-phsp.jsx');
+				break;
+				
+				case "ILST":	
+				loadJSX('app-ilst.jsx');
+				break;
+				
+				case "IDSN":	
+				loadJSX('app-idsn.jsx');
 				break;
 			}
 			
@@ -905,6 +912,8 @@
 							<img id="addBackground" class="icon iconEnabled" src="images/icons/background.png" width="30" height="30" alt="background" title="Add background">
 							<img id="addTextBox" class="icon iconEnabled" src="images/icons/text-box.png" width="30" height="30" alt="text-box">
 							<img id="addSeparateLines" class="icon iconEnabled" src="images/icons/separate-lines.png" width="30" height="30" alt="separate-lines">
+							|
+							<img id="about" class="icon iconEnabled" src="images/icons/info.png" width="30" height="30" alt="info" title="About Quran4Adobe ...">
 						</div> <!-- END panel العمليات -->
 						
 					</div>
@@ -954,5 +963,7 @@
 		<script src="./js/events-aeft.js"></script>
 		<script src="./js/events-ppro.js"></script>
 		<script src="./js/events-phsp.js"></script>
+		<script src="./js/events-ilst.js"></script>
+		<script src="./js/events-idsn.js"></script>
 	</body>
 </html>																	
