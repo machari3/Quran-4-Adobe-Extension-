@@ -911,6 +911,7 @@
 							|
 							<img id="addBackground" class="icon iconEnabled" src="images/icons/background.png" width="30" height="30" alt="background" title="Add background">
 							<img id="addTextBox" class="icon iconEnabled" src="images/icons/text-box.png" width="30" height="30" alt="text-box">
+							<img id="addTextMatte" class="icon iconEnabled" src="images/icons/text-matte.png" width="30" height="30" alt="text-matte">
 							<img id="addSeparateLines" class="icon iconEnabled" src="images/icons/separate-lines.png" width="30" height="30" alt="separate-lines">
 							|
 							<img id="about" class="icon iconEnabled" src="images/icons/info.png" width="30" height="30" alt="info" title="About Quran4Adobe ...">
@@ -951,6 +952,12 @@
 								<label for="addLineBreaks">رجوع تلقائي إلى السطر</label>
 							</div>
 						</div>
+						<div id="parentheses" class="wrapper">
+							<div class="custom_checkbox">
+								<input type="checkbox" id="addParentheses" checked>
+								<label for="addParentheses">إضافة الأقواس</label>
+							</div>
+						</div>
 						<button id="addAyaButton" class="button">أضف الآية</button>
 					</div> <!-- END panel الآية -->
 					
@@ -960,10 +967,31 @@
 		
 		<!-- Javascript -->
 		<script src="./js/app.js"></script>
+		<!--
 		<script src="./js/events-aeft.js"></script>
 		<script src="./js/events-ppro.js"></script>
 		<script src="./js/events-phsp.js"></script>
 		<script src="./js/events-ilst.js"></script>
 		<script src="./js/events-idsn.js"></script>
+		-->
+		
+<script>
+
+if (appName == "PHXS") {
+	appName = "PHSP";
+}
+// Create a script element
+var script = document.createElement('script');
+
+// Set the source of the script element based on appName
+script.src = "./js/events-" + appName + ".js";
+
+// Append the script element to the head of the document to load the script
+document.body.appendChild(script);
+
+</script>		
+		
+		
+		
 	</body>
 </html>																	

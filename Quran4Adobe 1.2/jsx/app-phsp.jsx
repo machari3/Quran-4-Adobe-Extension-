@@ -37,23 +37,24 @@ function addPagePHSP(pageNumber, fontSize) {
 }
 
 // Function to add Verse
-function addVersePHSP(verseKey, fontSize, lineBreak) {
+function addVersePHSP(verseKey, fontSize, lineBreak, parentheses) {
     var verse = verses[verseKey];
-    if (verse) {
-        var textToAdd = verse.code_v1;
-        var fontName = "QCF_P" + ("00" + verse.v1_page).slice(-3); // Generate font name dynamically
-        if (lineBreak) {
-		    // Get the width of the active document
-            var documentWidth = app.activeDocument.width;
-            var maxChars = Math.floor(documentWidth / (fontSize * 1)); // Adjust factor as needed
-            if (textToAdd.length > maxChars) {
-                textToAdd = textToAdd.replace(new RegExp('(.{1,' + maxChars + '})(\\s+|$)', 'g'), '$1\r')
-			}
-		}
-        addTextLayer(textToAdd, fontName, fontSize);
-		} else {
+    if (!verse) {
         alert("Verse not found.");
+        return;
 	}
+	
+	var textToAdd = parentheses ? "ﱫ" + verse.code_v1 + "ﱪ" : verse.code_v1;
+	var fontName = "QCF_P" + ("00" + verse.v1_page).slice(-3); // Generate font name dynamically
+	if (lineBreak) {
+		// Get the width of the active document
+		var documentWidth = app.activeDocument.width;
+		var maxChars = Math.floor(documentWidth / (fontSize * 1)); // Adjust factor as needed
+		if (textToAdd.length > maxChars) {
+			textToAdd = textToAdd.replace(new RegExp('(.{1,' + maxChars + '})(\\s+|$)', 'g'), '$1\r')
+		}
+	}
+	addTextLayer(textToAdd, fontName, fontSize);
 }
 
 // Define the function to add a solid color layer and place an image in Photoshop
@@ -77,7 +78,7 @@ function addBackgroundPSD() {
     doc.selection.deselect();
 	
     // Open the PNG file as a separate document
-    var pngFilePath = scriptPath + "%5Cimages%5Csurah-header.png";                
+    var pngFilePath = scriptPath + "%5Cdata%5Cimages%5Csurah-header-1.png";                
     var pngFile = new File(pngFilePath);
     if (!pngFile.exists) {
         alert("PNG file not found.");

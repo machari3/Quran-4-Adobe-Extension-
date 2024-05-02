@@ -18,8 +18,9 @@ $(document).ready(function(){
 	
     $('#addAyaButton').click(function () {
 		const verseKey = $('#verseInputField').val();
-		const isChecked = $("#addLineBreaks").prop("checked");
-		csInterface.evalScript('addVersePHSP("' + verseKey + '" ,' + window.fontSizeValue + ', true)');
+		const lineBreak = $("#addLineBreaks").prop("checked");
+		const parentheses = $("#addParentheses").prop("checked");
+		csInterface.evalScript('addVersePHSP("' + verseKey + '", ' + window.fontSizeValue + ', '+ lineBreak + ', '+ parentheses + ')');
 	});
 	
 	$('#addBackground').click(function () {

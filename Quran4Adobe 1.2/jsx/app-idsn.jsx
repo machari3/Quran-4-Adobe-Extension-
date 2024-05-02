@@ -41,13 +41,14 @@ function addPageIDSN(pageNumber, fontSize) {
 }
 
 // Function to add Verse
-function addVerseIDSN(verseKey, fontSize) {
+function addVerseIDSN(verseKey, fontSize, parentheses) {
     var verse = verses[verseKey];
-    if (verse) {
-        var textToAdd = verse.code_v1;
-        var fontName = "QCF_P" + ("00" + verse.v1_page).slice(-3); // Generate font name dynamically
-        addTextFrame(textToAdd, fontName, fontSize);
-    } else {
+    if (!verse) {
         alert("Verse not found.");
-    }
+        return;
+		}
+	
+    var textToAdd = parentheses ? "ﱫ" + verse.code_v1 + "ﱪ" : verse.code_v1;
+    var fontName = "QCF_P" + ("00" + verse.v1_page).slice(-3);
+    addTextFrame(textToAdd, fontName, fontSize);
 }

@@ -18,8 +18,9 @@ $(document).ready(function(){
 	
     $('#addAyaButton').click(function () {
 		const verseKey = $('#verseInputField').val();
-		const isChecked = $("#addLineBreaks").prop("checked");
-        csInterface.evalScript('addVerseAEFT("'+ verseKey +'", ' + window.fontSizeValue + ', '+ isChecked +')');
+		const lineBreak = $("#addLineBreaks").prop("checked");
+		const parentheses = $("#addParentheses").prop("checked");
+        csInterface.evalScript('addVerseAEFT("'+ verseKey +'", ' + window.fontSizeValue + ', '+ lineBreak + ', '+ parentheses + ')');
 	});
 	
     $('#addBackground').click(function () {
@@ -28,6 +29,10 @@ $(document).ready(function(){
 	
     $('#addTextBox').click(function () {
 		csInterface.evalScript('addTextBoxAEFT()');
+	});
+	
+    $('#addTextMatte').click(function () {
+		csInterface.evalScript('addTextMatteAEFT()');
 	});
 	
     $('#addSeparateLines').click(function () {

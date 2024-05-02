@@ -12,6 +12,7 @@ function addTextLayerWithFontAEFT(text, fontName, fontSize, addLineBreaks) {
     var textDocument = textProperty.value;
     textDocument.font = fontName;
 	textDocument.fontSize = fontSize; // Set font size
+	textDocument.justification = ParagraphJustification.CENTER_JUSTIFY; // Center the text
     textProperty.setValue(textDocument);
 	// var fontSize = textDocument.fontSize; // Get fontSize of Document
 	
@@ -43,20 +44,16 @@ function addPageAEFT(pageNumber, fontSize) {
 }
 
 // Define the function to add Verse
-function addVerseAEFT(verseKey, fontSize, lineBreak) {
-	var verse = verses[verseKey];
-	if (verse) {
-		var textToAdd = verse.code_v1;
-		var fontName = "QCF_P" + ("00" + verse.v1_page).slice(-3); // Generate font name dynamically
-		if (lineBreak) {
-			addTextLayerWithFontAEFT(textToAdd, fontName, fontSize, true);
-			} else {
-			addTextLayerWithFontAEFT(textToAdd, fontName, fontSize, false);
-		}
-		
-        } else {
-		alert("Verse not found.");
-	}
+function addVerseAEFT(verseKey, fontSize, lineBreak, parentheses) {
+    var verse = verses[verseKey];
+    if (!verse) {
+        alert("Verse not found.");
+        return;
+    }
+    
+    var textToAdd = parentheses ? "ﱫ" + verse.code_v1 + "ﱪ" : verse.code_v1;
+    var fontName = "QCF_P" + ("00" + verse.v1_page).slice(-3);
+    addTextLayerWithFontAEFT(textToAdd, fontName, fontSize, lineBreak);
 }
 
 // Define the function to add Background (solid & surah-header.png)
@@ -72,7 +69,7 @@ function addBackgroundAEFT() {
 	var solidColor = [250 / 255, 241 / 255, 228 / 255]; // RGB values for #F66606
     var solidLayer = comp.layers.addSolid(solidColor, "My Solid", comp.width, comp.height, comp.pixelAspect);
 	// Import PNG into After Effects
-    var pngFilePath = scriptPath + "%5Cimages%5Csurah-header.png"; // Specify the file path of the PNG image
+    var pngFilePath = scriptPath + "%5Cdata%5Cimages%5Csurah-header-1.png"; // Specify the file path of the PNG image
     var pngFile = new File(pngFilePath);
     if (!pngFile.exists) {
         alert("PNG file not found.");
@@ -122,7 +119,49 @@ function addTextBoxAEFT() {
             selectedLayers[i].applyPreset(presetFile);
 		}
 	}
-}					
+}	
+
+// Define the function to add TextMatte
+function addTextMatteAEFT() {
+    var comp = app.project.activeItem;
+    if (!(comp && comp instanceof CompItem)) {
+        alert("Please select a composition.");
+        return;
+	}
+	
+	// Check if the layer is a text layer
+    var selectedLayers = comp.selectedLayers;
+    if (selectedLayers.length === 0 || !(selectedLayers[0] instanceof TextLayer)) {
+        alert("Please select a text layer.");
+        return;
+	}
+	
+    var pngFilePath = scriptPath + "%5Cdata%5Cimages%5Cmap-1.png"; // Specify the file path of the PNG image
+    var pngFile = new File(pngFilePath);
+    if (!pngFile.exists) {
+        alert("PNG file not found.");
+        return;
+	}
+	
+	
+    var importedFootage = app.project.importFile(new ImportOptions(pngFile));
+    if (!importedFootage) {
+        alert("Failed to import PNG.");
+        return;
+	}
+	
+	// Assuming the selected layer is the text layer
+	var myTextLayer = comp.selectedLayers[0];
+	
+	// Add the map image to the composition
+	var myMapLayer = comp.layers.add(importedFootage);
+	myMapLayer.moveAfter(myTextLayer);
+	
+	// Set the track matte of the map layer to the text layer
+	// This assumes that the text layer is directly above the map layer
+	myMapLayer.trackMatteType = TrackMatteType.ALPHA;
+	
+}
 
 // Define the function to separate lines
 function separateLinesAEFT() {

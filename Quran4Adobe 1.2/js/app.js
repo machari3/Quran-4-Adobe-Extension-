@@ -90,6 +90,7 @@ $(document).ready(function(){
 		csInterface.evalScript('isTextLayerSelected()', function(result) {
 			const icons = [
 				{ id: 'addTextBox', title: 'Add text box', enabled: 'images/icons/text-box.png', disabled: 'images/icons/text-box-disabled.png' },
+				{ id: 'addTextMatte', title: 'Add text matte', enabled: 'images/icons/text-matte.png', disabled: 'images/icons/text-matte-disabled.png' },
 				{ id: 'addSeparateLines', title: 'Add separate lines', enabled: 'images/icons/separate-lines.png', disabled: 'images/icons/separate-lines-disabled.png' }
 			];
 			
@@ -123,13 +124,17 @@ $(document).ready(function(){
 		case "PPRO":	
 		$('#header-image').attr('src', 'images/Quran4PPRO.png');
 		$('#addTextBox').hide();
+		$('#addTextMatte').hide();
 		$('#addSeparateLines').hide();
+		
+		$('#parentheses').hide(); //TODO
 		break;
 		
 		case "PHSP":
 		case "PHXS":
 		$('#header-image').attr('src', 'images/Quran4PHSP.png');
 		$('#addTextBox').hide();
+		$('#addTextMatte').hide();
 		$('#addSeparateLines').hide();
 		break;
 		
@@ -137,13 +142,17 @@ $(document).ready(function(){
 		$('#header-image').attr('src', 'images/Quran4ILST.png');
 		$('#addBackground').hide();
 		$('#addTextBox').hide();
+		$('#addTextMatte').hide();
 		$('#addSeparateLines').hide();
+		
+		$('#parentheses').hide(); //TODO
 		break;
 		
 		case "IDSN":	
 		$('#header-image').attr('src', 'images/Quran4IDNS.png');
 		$('#addBackground').hide();
 		$('#addTextBox').hide();
+		$('#addTextMatte').hide();
 		$('#addSeparateLines').hide();
 		$('#lineBreaks').hide();
 		break;
