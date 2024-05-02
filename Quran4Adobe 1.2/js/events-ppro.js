@@ -4,7 +4,8 @@ $(document).ready(function(){
 	
     const basmalaMogrtPath = extensionRoot + '/data/mogrt/Basmala.mogrt';
 	const surahNameMogrtPath = extensionRoot + '/data/mogrt/Surah-name.mogrt';
-	const PageMogrtPath = extensionRoot + '/data/mogrt/Page.mogrt';
+	const pageMogrtPath = extensionRoot + '/data/mogrt/Page.mogrt';
+	const backgroundPath = extensionRoot + '/data/mogrt/Background-1.mogrt';
 	
     $('#addBasmalaButton').click(function () {	
 		csInterface.evalScript('addBasmalaMogrt(File("' + basmalaMogrtPath + '"), ' + window.fontSizeValue + ')');
@@ -17,12 +18,18 @@ $(document).ready(function(){
 	
     $('#addPageButton').click(function () {
 		const pageNumber = $('.selected .page-number span').text();
-		csInterface.evalScript('addPageMogrt(File("' + PageMogrtPath +'"), "' + pageNumber + '", ' + window.fontSizeValue + ')');
+		csInterface.evalScript('addPageMogrt(File("' + pageMogrtPath +'"), "' + pageNumber + '", ' + window.fontSizeValue + ')');
 	});
 	
     $('#addAyaButton').click(function () {
 		const verseKey = $('#verseInputField').val();
-		const isChecked = $("#addLineBreaks").prop("checked");
-		csInterface.evalScript('addVerseMogrt(File("' + PageMogrtPath +'"), "' + verseKey + '", '+ window.fontSizeValue + ', true)');
+		const lineBreak = $("#addLineBreaks").prop("checked");
+		const parentheses = $("#addParentheses").prop("checked");
+		csInterface.evalScript('addVerseMogrt(File("' + pageMogrtPath +'"), "' + verseKey + '", '+ window.fontSizeValue + ', '+ lineBreak + ', '+ parentheses + ')');
 	});
+	
+    $('#addBackground').click(function () {
+		csInterface.evalScript('addBackgroundMogrt(File("' + backgroundPath + '"))');
+	});
+	
 });	

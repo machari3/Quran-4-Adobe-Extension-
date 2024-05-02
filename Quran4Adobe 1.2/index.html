@@ -968,30 +968,23 @@
 		<!-- Javascript -->
 		<script src="./js/app.js"></script>
 		<!--
-		<script src="./js/events-aeft.js"></script>
-		<script src="./js/events-ppro.js"></script>
-		<script src="./js/events-phsp.js"></script>
-		<script src="./js/events-ilst.js"></script>
-		<script src="./js/events-idsn.js"></script>
+			<script src="./js/events-aeft.js"></script>
+			<script src="./js/events-ppro.js"></script>
+			<script src="./js/events-phsp.js"></script>
+			<script src="./js/events-ilst.js"></script>
+			<script src="./js/events-idsn.js"></script>
 		-->
 		
-<script>
-
-if (appName == "PHXS") {
-	appName = "PHSP";
-}
-// Create a script element
-var script = document.createElement('script');
-
-// Set the source of the script element based on appName
-script.src = "./js/events-" + appName + ".js";
-
-// Append the script element to the head of the document to load the script
-document.body.appendChild(script);
-
-</script>		
-		
-		
-		
+		<script>
+			if (appName == "PHXS") {
+				appName = "PHSP";
+			}
+			// Create a script element
+			var script = document.createElement('script');
+			// Set the source of the script element based on appName
+			script.src = "./js/events-" + appName + ".js";
+			// Append the script element to the head of the document to load the script
+			document.body.appendChild(script);
+		</script>		
 	</body>
 </html>																	

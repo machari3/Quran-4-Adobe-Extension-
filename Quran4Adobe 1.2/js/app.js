@@ -3,7 +3,7 @@
 const pad = (num, size) => num.toString().padStart(size, '0');
 
 $(document).ready(function(){
-		
+	
 	// Get font size 
 	window.fontSizeValue = $('#font-size').val();
 	
@@ -126,8 +126,6 @@ $(document).ready(function(){
 		$('#addTextBox').hide();
 		$('#addTextMatte').hide();
 		$('#addSeparateLines').hide();
-		
-		$('#parentheses').hide(); //TODO
 		break;
 		
 		case "PHSP":
@@ -144,8 +142,6 @@ $(document).ready(function(){
 		$('#addTextBox').hide();
 		$('#addTextMatte').hide();
 		$('#addSeparateLines').hide();
-		
-		$('#parentheses').hide(); //TODO
 		break;
 		
 		case "IDSN":	
@@ -159,7 +155,7 @@ $(document).ready(function(){
 	}
 	
     $('#about').click(function () {	
-      window.location.href = 'about.html';   
+		window.location.href = 'about.html';   
 	});
-
+	
 });	

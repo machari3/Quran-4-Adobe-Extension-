@@ -18,7 +18,8 @@ $(document).ready(function(){
 	
     $('#addAyaButton').click(function () {
 		const verseKey = $('#verseInputField').val();
-		const isChecked = $("#addLineBreaks").prop("checked");
-        csInterface.evalScript('addVerseILST("'+ verseKey +'", ' + window.fontSizeValue + ', '+ isChecked +')');
+		const lineBreak = $("#addLineBreaks").prop("checked");
+		const parentheses = $("#addParentheses").prop("checked");
+        csInterface.evalScript('addVerseILST("'+ verseKey +'", ' + window.fontSizeValue + ', ' + lineBreak + ', '+ parentheses + ')');
 	});
 });	

@@ -18,7 +18,7 @@ function addBasmalaMogrt(basmalaMogrtPath, fontSize) {
 			var newText = currentText.replace(/"fontSizeEditValue":\[70\]/g, '"fontSizeEditValue":\[' + fontSize + '\]');
 			
 			// Set the modified text value
-			textProperty.setValue(newText);
+			textProperty.setValue(newText, true);
 			
 			} else {
             alert("Failed to access Essential Graphics properties.");
@@ -53,7 +53,7 @@ function addSurahNameMogrt(file, surahNumber, fontSize) {
 			var newText = currentText.replace(/"fontSizeEditValue":\[70\]/g, '"fontSizeEditValue":\[' + fontSize + '\]');
 			
 			// Set the modified text value
-			textProperty.setValue(newText);
+			textProperty.setValue(newText, true);
 			
 			} else {
             alert("Failed to access Essential Graphics properties.");
@@ -88,7 +88,7 @@ function addPageMogrt(file, pageNumber, fontSize) {
 			var newText = newText.replace(/"fontSizeEditValue":\[55\]/g, '"fontSizeEditValue":\[' + fontSize + '\]');
 			
 			// Set the modified text value
-			textProperty.setValue(newText);
+			textProperty.setValue(newText, true);
 			
 			} else {
             alert("Failed to access Essential Graphics properties.");
@@ -99,7 +99,7 @@ function addPageMogrt(file, pageNumber, fontSize) {
 }
 
 // Function to add Verse
-function addVerseMogrt(file, verseKey, fontSize, lineBreak) {
+function addVerseMogrt(file, verseKey, fontSize, lineBreak, parentheses) {
     var project = app.project;
     var sequence = project.activeSequence;
     var time = sequence.getPlayerPosition();
@@ -108,8 +108,12 @@ function addVerseMogrt(file, verseKey, fontSize, lineBreak) {
 	
 	var verse = verses[verseKey];
 	
-	if (verse) {
-		var textToAdd = verse.code_v1;
+    if (!verse) {
+        alert("Verse not found.");
+        return;
+    }
+	    var textToAdd = parentheses ? "ﱫ" + verse.code_v1 + "ﱪ" : verse.code_v1;
+
 		var fontName = "QCF_P" + ("00" + verse.v1_page).slice(-3); // Generate font name dynamically
 		
 		if (lineBreak) {
@@ -134,7 +138,7 @@ function addVerseMogrt(file, verseKey, fontSize, lineBreak) {
 				var newText = newText.replace(/"fontSizeEditValue":\[55\]/g, '"fontSizeEditValue":\[' + fontSize + '\]');
 				
 				// Set the modified text value
-				textProperty.setValue(newText);
+				textProperty.setValue(newText, true);
 				
 				} else {
 				alert("Failed to access Essential Graphics properties.");
@@ -142,8 +146,20 @@ function addVerseMogrt(file, verseKey, fontSize, lineBreak) {
 			} else {
 			alert("Failed to import .mogrt file.");
 		}
+}
+
+function addBackgroundMogrt(file) {
+    var project = app.project;
+    var sequence = project.activeSequence;
+    var time = sequence.getPlayerPosition();
+    
+    var mogrtItem = sequence.importMGT(file.fsName, time, 0, 0);
+	/* TODO   
+    if (mogrtItem) {
 		
-        } else {
-		alert("Verse not found.");
-	}
+        var mogrtComponent = mogrtItem.getMGTComponent();
+        
+        if (mogrtComponent) {
+		}
+	}*/
 }
