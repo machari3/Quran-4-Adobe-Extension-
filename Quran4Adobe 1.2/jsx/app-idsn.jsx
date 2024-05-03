@@ -8,7 +8,7 @@ function addTextFrame(content, fontName, fontSize) {
 
         // Create a text frame on the first page
         var textFrame = doc.pages[0].textFrames.add({
-            geometricBounds: [500, 1000, 100, 200] // Adjust geometricBounds as per your requirement
+            geometricBounds: [72, 72, doc.documentPreferences.pageHeight - 72, doc.documentPreferences.pageWidth - 72] // Adjust geometricBounds as per your requirement
         });
 
         // Add text to the text frame
