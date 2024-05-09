@@ -12,10 +12,11 @@
 
 قمنا وبحمد الله بإنشاء هذه الأداة مفتوحة المصدر التي تسمح بإدراج النص القرآني بطريقة سهلة وميسرة على برامج أدوبي، تتيح هذه الأداة إضافة البسملة وإسم السورة والصفحة والآيات القرآنية بسرعة وسهولة إلى مشاريعكم مما يوفر الوقت والجهد، ... وصلى الله على نبينا محمدﷺ 
 
+<div align="center">
+  <img src="https://machari3.github.io/Quran-4-Adobe-Extension/images/Quran4Adobe_cs.png" width="40%" height="40%" />
+</div>
+
 للمزيد من المعلومات يرجى زيارة الموقع الرسمي:
 
 https://machari3.github.io/Quran-4-Adobe-Extension/
 
-<div align="center">
-  <img src="https://machari3.github.io/Quran-4-Adobe-Extension/images/Quran4Adobe_cs.png" width="30%" height="30%" />
-</div>
