@@ -15,3 +15,7 @@
 للمزيد من المعلومات يرجى زيارة الموقع الرسمي:
 
 https://machari3.github.io/Quran-4-Adobe-Extension/
+
+<div align="center">
+  <img src="https://machari3.github.io/Quran-4-Adobe-Extension/images/Quran4Adobe_cs.png" width="30%" height="30%" />
+</div>
