@@ -60,9 +60,10 @@ function addVerseILST(verseKey, fontSize, lineBreak, parentheses) {
 		// Get the width of the active document
 		var documentWidth = app.activeDocument.width;
 		var maxChars = Math.floor(documentWidth / (fontSize * 1)); // Adjust factor as needed
-		if (reversedText.length > maxChars) {
-			reversedText = reversedText.replace(new RegExp('(.{1,' + maxChars + '})(\\s+|$)', 'g'), '$1\r')
+		if (textToAdd.length > maxChars) {
+			textToAdd = textToAdd.replace(new RegExp('(.{1,' + maxChars + '})(\\s+|$)', 'g'), '$1\r')
 		}
+	var reversedText = reverseTextKeepLines(textToAdd);	
 	}
 	addTextLayer(reversedText, fontName, fontSize);
 }
