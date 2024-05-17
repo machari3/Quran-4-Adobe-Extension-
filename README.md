@@ -1,10 +1,10 @@
 <div align="center">
-<img src="Quran4Adobe 1.3/images/basmala.png" alt="basmala" width="294px" height="36px" />
+<img src="Quran4Adobe 1.3.1/images/basmala.png" alt="basmala" width="294px" height="36px" />
 </div>
 
 [English](./README-EN.md) | العربية
 <div align="center">
-  <img src="Quran4Adobe 1.3/images/Quran4Adobe.png" alt="Quran4Adobe" width="544px" height="100px" />
+  <img src="Quran4Adobe 1.3.1/images/Quran4Adobe.png" alt="Quran4Adobe" width="544px" height="100px" />
   <h1>مرحبا بكم في مشروع Quran 4 Adobe</h1>
 </div>
 
