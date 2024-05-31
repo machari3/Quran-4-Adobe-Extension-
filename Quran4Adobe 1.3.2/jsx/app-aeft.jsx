@@ -1,4 +1,7 @@
-﻿// Function to check if a text layer is selected AEFT
+﻿var isWindows = ($.os.indexOf("Windows") !== -1);
+var separator = isWindows ? "\\" : "/";
+
+// Function to check if a text layer is selected AEFT
 function isTextLayerSelected() {
   var comp = app.project.activeItem;
   if (comp && comp instanceof CompItem) {
@@ -95,13 +98,13 @@ function addBackgroundAEFT() {
     var solidLayer = comp.layers.addSolid(solidColor, "My Solid", comp.width, comp.height, comp.pixelAspect);
 
     // Check if the PNG is already imported
-    var pngFileName = "surah-header-1.png";
-    var imageItem = findInProject(pngFileName);
+    var surahHeaderFileName_01 = "surah-header-0001.png";
+    var imageItem = findInProject(surahHeaderFileName_01);
 
     if (!imageItem) {
         // Import PNG into After Effects if not found
-        var pngFilePath = scriptPath + "\\data\\images\\" + pngFileName; 
-        var pngFile = new File(pngFilePath);
+        var surahHeaderFilePath_01 = scriptPath + separator + "data" + separator + "images" + separator + surahHeaderFileName_01;
+        var pngFile = new File(surahHeaderFilePath_01);
         if (!pngFile.exists) {
             alert("PNG file not found.");
             return;
@@ -141,10 +144,9 @@ function addTextBoxAEFT() {
         return;
 	}
 	
-	// Path to the preset
-	var myPresetPath = scriptPath + "\\data\\ffx\\textBox.ffx";
-	
-	var presetFile = File(myPresetPath);
+	var presetFileName = "textBox.ffx";
+	var textBoxPresetPath = scriptPath + separator + "data" + separator + "ffx" + separator + presetFileName;
+	var presetFile = File(textBoxPresetPath);
 	
     // Loop through all selected layers
     for (var i = 0; i < selectedLayers.length; i++) {
@@ -170,11 +172,10 @@ function addTextAnimator1AEFT() {
         alert("Please select a text layer.");
         return;
 	}
-	
-	// Path to the preset
-	var myPresetPath = scriptPath + "\\data\\ffx\\textAnimator-1.ffx";
-	
-	var presetFile = File(myPresetPath);
+
+	var presetFileName = "textAnimator-1.ffx";
+	var textAnimatorPresetPath_01 = scriptPath + separator + "data" + separator + "ffx" + separator + presetFileName;
+	var presetFile = File(textAnimatorPresetPath_01);
 	
     // Loop through all selected layers
     for (var i = 0; i < selectedLayers.length; i++) {
@@ -202,13 +203,13 @@ function addTextMatteAEFT() {
 	}
 
     // Check if the PNG is already imported
-    var pngFileName = "map-1.png";
-    var imageItem = findInProject(pngFileName);
+    var mapFileName_01 = "map-0001.png";
+    var imageItem = findInProject(mapFileName_01);
 
     if (!imageItem) {
         // Import PNG into After Effects if not found
-        var pngFilePath = scriptPath + "\\data\\images\\" + pngFileName; 
-        var pngFile = new File(pngFilePath);
+        var mapFilePath_01 = scriptPath + separator + "data" + separator + "images" + separator + mapFileName_01;
+        var pngFile = new File(mapFilePath_01);
         if (!pngFile.exists) {
             alert("PNG file not found.");
             return;
@@ -246,11 +247,10 @@ function addTextOpacityAEFT() {
         alert("Please select a text layer.");
         return;
 	}
-		
-	// Path to the preset
-	var myPresetPath = scriptPath + "\\data\\ffx\\opacity-1.ffx";
-	
-	var presetFile = File(myPresetPath);
+
+	var presetFileName = "opacity-1.ffx";
+	var opacityPresetPath_01 = scriptPath + separator + "data" + separator + "ffx" + separator + presetFileName;
+	var presetFile = File(opacityPresetPath_01);
 	
     // Loop through all selected layers
     for (var i = 0; i < selectedLayers.length; i++) {

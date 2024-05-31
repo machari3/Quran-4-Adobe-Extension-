@@ -3,7 +3,7 @@
 	* بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ
 	* In the name of Allah, Most Gracious, Most Merciful
 	* 
-	* Quran4Adobe Extension V1.3.1:
+	* Quran4Adobe Extension V1.3.2:
 	* الأداة عبارة عن إضافة لبرامج أدوبي أفتر إفكتس، البريمر برو، ... إلخ تتيح للمستخدمين 
 	* إضافة الصفحات والآيات وأسماء السور القرآنية بسهولة إلى مشاريعهم
 	* مما يوفر الوقت والجهد ... وصلى الله على نبينا محمدﷺ
@@ -12,7 +12,7 @@
 	* ولهذا كل مقترحاتكم ودعمكم مرحب به
 	*
 	* @link          https://github.com/machari3/Quran-4-Adobe-Extension-    Quran 4 Adobe Extension Project.
-	* @version 1.3.1
+	* @version 1.3.2
 	*---------------------------------------------------------------------------------------------------------
 	* نشكر القائمين على مشروع قرآن دوت كوم، حيث لم يكن هذا المشروع ممكنًا 
 	* بدون الإعتماد على مشاريعهم مفتوحة المصدر لإنتاج هذه الأداة
@@ -33,8 +33,8 @@
 		<link href="./css/fonts.css" rel="stylesheet">
 		<link href="./css/styles.css" rel="stylesheet">
 		<!-- Javascript -->
-		<script src="./lib/CSInterface.js"></script>
-		<script src="./lib/jquery-3.7.1.min.js"></script>
+		<script src="./js/lib/CSInterface.js"></script>
+		<script src="./js/lib/jquery-3.7.1.min.js"></script>
 		<script>
 			const csInterface = new CSInterface(); // Create CSInterface object once
 			var hostEnv = csInterface.getHostEnvironment();
@@ -78,7 +78,7 @@
 		<!-- Application Main -->
 		<div class="application-main"> 
 			<div class="header">
-				<img id="header-image" src="images/Quran4Adobe.png" width="470" height="86" alt="Quran4Adobe">
+				<img id="header-image" src="assets/images/Quran4Adobe.png" width="470" height="86" alt="Quran4Adobe">
 			</div>
 			<!-- Application Main content-->
 			<div class="application-main-content">
@@ -903,21 +903,21 @@
 					<!-- panel العمليات -->
 					<div class="panel">
 						<div class="panel1">
-							<img id="" class="" src="images/icons/text-size.png" width="22" height="30" alt="font-size" title="Set the font size">
+							<img id="" class="" src="assets/images/icons/text-size.png" width="22" height="30" alt="font-size" title="Set the font size">
 							<div class="number-input">
 								<input id="font-size" min="0" name="font-size" value="80" type="number">
 							</div>
 							|
-							<img id="addBackground" class="icon iconEnabled" src="images/icons/background.png" width="30" height="30" alt="background" title="Add background">
-							<img id="addTextBox" class="icon iconEnabled" src="images/icons/text-box.png" width="30" height="30" alt="text-box">
-							<img id="addTextAnimator1" class="icon iconEnabled" src="images/icons/text-matte.png" width="30" height="30" alt="text-matte">
-							<img id="addTextMatte" class="icon iconEnabled" src="images/icons/text-animator-1.png" width="30" height="30" alt="text-matte">
+							<img id="addBackground" class="icon iconEnabled" src="assets/images/icons/background.png" width="30" height="30" alt="background" title="Add background">
+							<img id="addTextBox" class="icon iconEnabled" src="assets/images/icons/text-box.png" width="30" height="30" alt="text-box">
+							<img id="addTextAnimator1" class="icon iconEnabled" src="assets/images/icons/text-matte.png" width="30" height="30" alt="text-matte">
+							<img id="addTextMatte" class="icon iconEnabled" src="assets/images/icons/text-animator-1.png" width="30" height="30" alt="text-matte">
 							<div class="breaker"></div>
-							<img id="addTextOpacity" class="icon iconEnabled" src="images/icons/text-opacity-1.png" width="30" height="30" alt="text-opacity">
-							<img id="addSeparateLines" class="icon iconEnabled" src="images/icons/separate-lines.png" width="30" height="30" alt="separate-lines">
+							<img id="addTextOpacity" class="icon iconEnabled" src="assets/images/icons/text-opacity-1.png" width="30" height="30" alt="text-opacity">
+							<img id="addSeparateLines" class="icon iconEnabled" src="assets/images/icons/separate-lines.png" width="30" height="30" alt="separate-lines">
 							|
-							<img id="settings" class="icon iconEnabled" src="images/icons/settings.png" width="30" height="30" alt="settings" title="Settings">
-							<img id="about" class="icon iconEnabled" src="images/icons/info.png" width="30" height="30" alt="info" title="About Quran4Adobe ...">
+							<img id="settings" class="icon iconEnabled" src="assets/images/icons/settings.png" width="30" height="30" alt="settings" title="Settings">
+							<img id="about" class="icon iconEnabled" src="assets/images/icons/info.png" width="30" height="30" alt="info" title="About Quran4Adobe ...">
 						</div> 
 					</div><!-- END panel العمليات -->
 					

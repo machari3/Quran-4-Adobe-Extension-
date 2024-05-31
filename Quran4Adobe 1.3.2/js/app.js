@@ -84,11 +84,11 @@ $(document).ready(function(){
 	function updateIconState() {
 		csInterface.evalScript('isTextLayerSelected()', function(result) {
 			const icons = [
-				{ id: 'addTextBox', title: 'Add text box', enabled: 'images/icons/text-box.png', disabled: 'images/icons/text-box-disabled.png' },
-				{ id: 'addTextMatte', title: 'Add text matte', enabled: 'images/icons/text-matte.png', disabled: 'images/icons/text-matte-disabled.png' },
-				{ id: 'addTextAnimator1', title: 'Add text animator', enabled: 'images/icons/text-animator-1.png', disabled: 'images/icons/text-animator-1-disabled.png' },
-				{ id: 'addTextOpacity', title: 'Add text opacity', enabled: 'images/icons/text-opacity-1.png', disabled: 'images/icons/text-opacity-1-disabled.png' },
-				{ id: 'addSeparateLines', title: 'Add separate lines', enabled: 'images/icons/separate-lines.png', disabled: 'images/icons/separate-lines-disabled.png' }
+				{ id: 'addTextBox', title: 'Add text box', enabled: 'assets/images/icons/text-box.png', disabled: 'assets/images/icons/text-box-disabled.png' },
+				{ id: 'addTextMatte', title: 'Add text matte', enabled: 'assets/images/icons/text-matte.png', disabled: 'assets/images/icons/text-matte-disabled.png' },
+				{ id: 'addTextAnimator1', title: 'Add text animator', enabled: 'assets/images/icons/text-animator-1.png', disabled: 'assets/images/icons/text-animator-1-disabled.png' },
+				{ id: 'addTextOpacity', title: 'Add text opacity', enabled: 'assets/images/icons/text-opacity-1.png', disabled: 'assets/images/icons/text-opacity-1-disabled.png' },
+				{ id: 'addSeparateLines', title: 'Add separate lines', enabled: 'assets/images/icons/separate-lines.png', disabled: 'assets/images/icons/separate-lines-disabled.png' }
 			];
 			
 			icons.forEach(icon => {
@@ -150,7 +150,7 @@ $(document).ready(function(){
 	// Switch statement to set UI elements based on the application name
 	switch(appName) {
 		case "AEFT":
-		$('#header-image').attr('src', 'images/Quran4AEFT.png');
+		$('#header-image').attr('src', 'assets/images/Quran4AEFT.png');
 		// Initial check for icon state
 		updateIconState();
 		// Set interval to periodically check for changes in icon state
@@ -158,32 +158,32 @@ $(document).ready(function(){
 		break;
 		
 		case "PPRO":	
-		$('#header-image').attr('src', 'images/Quran4PPRO.png');
+		$('#header-image').attr('src', 'assets/images/Quran4PPRO.png');
 		hideElements();
 		break;
 		
 		case "PHSP":
 		case "PHXS":
-		$('#header-image').attr('src', 'images/Quran4PHSP.png');
+		$('#header-image').attr('src', 'assets/images/Quran4PHSP.png');
 		hideElements();
 		break;
 		
 		case "ILST":	
-		$('#header-image').attr('src', 'images/Quran4ILST.png');
+		$('#header-image').attr('src', 'assets/images/Quran4ILST.png');
 		hideElements();
 		break;
 		
 		case "IDSN":	
-		$('#header-image').attr('src', 'images/Quran4IDNS.png');
+		$('#header-image').attr('src', 'assets/images/Quran4IDNS.png');
 		hideElements();
 		break;
 	}
 	
     $('#about').click(function () {	
-		window.location.href = 'about.html';   
+		window.location.href = './html/about.html';   
 	});
 	
     $('#settings').click(function () {	
-		window.location.href = 'settings.html';   
+		window.location.href = './html/settings.html';   
 	});
 });	

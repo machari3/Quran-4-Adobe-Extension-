@@ -1,4 +1,7 @@
-﻿// Function to add text layer with specified content, font, and size
+﻿var isWindows = ($.os.indexOf("Windows") !== -1);
+var separator = isWindows ? "\\" : "/";
+
+// Function to add text layer with specified content, font, and size
 function addTextLayer(content, fontName, fontSize) {
 	var doc = app.activeDocument;
 	// Create a new text frame
@@ -82,9 +85,10 @@ function addBackgroundPSD() {
     doc.selection.fill(solidColor);
     doc.selection.deselect();
 	
-    // Open the PNG file as a separate document
-    var pngFilePath = scriptPath + "\\data\\images\\surah-header-1.png";                
-    var pngFile = new File(pngFilePath);
+    // Open the PNG file as a separate document    
+    var surahHeaderFileName_01 = "surah-header-0001.png";
+    var surahHeaderFilePath_01 = scriptPath + separator + "data" + separator + "images" + separator + surahHeaderFileName_01; 
+    var pngFile = new File(surahHeaderFilePath_01);
     if (!pngFile.exists) {
         alert("PNG file not found.");
         return;
