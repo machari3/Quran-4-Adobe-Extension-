@@ -1,5 +1,5 @@
 <div align="center">
-<img src="Quran4Adobe 1.3.2/images/basmala.png" alt="basmala" width="294px" height="36px" />
+<img src="Quran4Adobe 1.3.2/assets/images/basmala.png" alt="basmala" width="294px" height="36px" />
 </div>
 
 [English](./README-EN.md) | العربية
